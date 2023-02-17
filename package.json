@@ -1,0 +1,33 @@
+{
+  "name": "bot-discord",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "NODE_ENV=production tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "start": "nodemon -r tsconfig-paths/register src/index.ts"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.14.0",
+    "discord.js": "13.0.0",
+    "dotenv": "^16.0.3",
+    "ffmpeg-static": "^5.1.0",
+    "libsodium-wrappers": "^0.7.11",
+    "module-alias": "^2.2.2",
+    "moment": "^2.29.4",
+    "reconlx": "^2.5.6",
+    "scdl-core": "^1.1.0",
+    "ytdl-core": "^4.11.2",
+    "ytpl": "^2.3.0",
+    "ytsr": "^3.8.0"
+  },
+  "devDependencies": {
+    "@types/module-alias": "^2.0.1",
+    "@types/node": "^18.13.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^4.9.5"
+  }
+}
