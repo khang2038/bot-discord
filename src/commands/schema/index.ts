@@ -14,6 +14,18 @@ export const schema: ApplicationCommandData[] = [
     ],
   },
   {
+    name: "chatgpt",
+    description: "giải đáp thắc mắc !!!",
+    options: [
+      {
+        name: "input",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "hỏi đê",
+        required: true,
+      },
+    ],
+  },
+  {
     name: "chuyenbai",
     description: "chuyển qua bài khác đê",
   },
@@ -30,8 +42,8 @@ export const schema: ApplicationCommandData[] = [
     description: "gáy tiếp e ei",
   },
   {
-    name: "roi",
-    description: "rời đi",
+    name: "tatnhac",
+    description: "tatnhac",
   },
   {
     name: "nowplaying",

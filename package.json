@@ -16,6 +16,7 @@
     "libsodium-wrappers": "^0.7.11",
     "module-alias": "^2.2.2",
     "moment": "^2.29.4",
+    "openai": "^3.1.0",
     "reconlx": "^2.5.6",
     "scdl-core": "^1.1.0",
     "ytdl-core": "^4.11.2",

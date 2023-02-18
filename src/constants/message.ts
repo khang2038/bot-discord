@@ -1,7 +1,7 @@
 export const messages = {
   error: "Error!",
   cantFindAnyThing: "bai gi la vay???",
-  joinVoiceChannel: "Join a voice channel and try again!",
+  joinVoiceChannel: "vào chỗ nào nói để chụy nhảy vào nào!",
   failToJoinVoiceChannel: "Failed to join voice channel!",
   failToPlay: "i do not like play for you!!",
   addedToQueue: "Added to queue by",
@@ -16,7 +16,7 @@ export const messages = {
   paused: "Paused!",
   resumed: "Resumed!",
   alreadyPlaying: "Already playing!",
-  leaved: "why did you kick me",
+  leaved: "tạm biệt các chick chụy đi đây!!!!",
   nothing: "Nothing",
   yourQueue: "Your queue",
   invalidPosition: "Invalid position!",

@@ -18,5 +18,12 @@ export const deploy = (client: Client): void => {
         message.reply("Fail to deploy!");
       }
     }
+    if (message.content.toLowerCase() === "!hello") {
+      try {
+        await message.reply("chào chick, chick muốn chụy bật bài giề!");
+      } catch (e) {
+        message.reply("Fail to deploy!");
+      }
+    }
   });
 };

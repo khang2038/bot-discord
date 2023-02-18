@@ -15,7 +15,6 @@ export const play = {
   name: "lennhac",
   execute: async (interaction: CommandInteraction): Promise<void> => {
     await interaction.deferReply();
-    console.log(interaction);
     let server = servers.get(interaction.guildId as string);
     if (!server) {
       if (

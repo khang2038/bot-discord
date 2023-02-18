@@ -10,6 +10,8 @@ import { bootstrap } from "./commands";
 import { play } from "./commands/collections/play";
 import { messages } from "./constants/message";
 import { help } from "./commands/collections/help";
+import { leave } from "./commands/collections/leave";
+import { chatGPT } from "./commands/collections/chatGPT";
 
 const client = new Client({
   intents: [
@@ -28,7 +30,6 @@ client.login(process.env.TOKEN).then(() => {
   bootstrap(client);
 
   client.on("interactionCreate", async (interaction) => {
-    console.log(interaction);
     if (!interaction.isCommand() || !interaction.guildId) return;
     try {
       switch (interaction.commandName) {
@@ -37,6 +38,12 @@ client.login(process.env.TOKEN).then(() => {
           break;
         case help.name:
           help.execute(interaction);
+          break;
+        case leave.name:
+          leave.execute(interaction);
+          break;
+        case chatGPT.name:
+          chatGPT.execute(interaction);
           break;
       }
     } catch (e) {
