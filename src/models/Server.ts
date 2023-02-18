@@ -11,8 +11,7 @@ import {
 } from "@discordjs/voice";
 import { Snowflake } from "discord.js";
 import { platform, Song } from "src/types/song";
-import ytdl from "ytdl-core";
-
+import play from "play-dl";
 export interface QueueItem {
   song: Song;
   requester: string;
@@ -96,13 +95,11 @@ export class Server {
     try {
       if (this.queue.length > 0) {
         this.playing = this.queue.shift() as QueueItem;
-        const highWaterMark = 1024 * 1024 * 10;
-        const stream = ytdl(this.playing.song.url, {
-          highWaterMark,
-          filter: "audioonly",
-          quality: "highestaudio",
+        const yt_info = await play.video_info(this.playing.song.url);
+        const stream = await play.stream_from_info(yt_info);
+        const audioResource = createAudioResource(stream.stream, {
+          inputType: stream.type,
         });
-        const audioResource = createAudioResource(stream);
         this.audioPlayer.play(audioResource);
       } else {
         this.playing = undefined;
