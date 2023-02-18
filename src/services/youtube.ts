@@ -1,7 +1,7 @@
 import { youtubePlaylistRegex, youtubeVideoRegex } from "src/constants/regex";
 import { Playlist } from "src/types/playlists";
 import { Song, platform } from "src/types/song";
-import ytdl from "ytdl-core";
+import play from "play-dl";
 import ytpl from "ytpl";
 import ytsr, { Video } from "ytsr";
 
@@ -17,14 +17,15 @@ export class YoutubeService {
       id = parsedContent[1];
     }
     const videoUrl = this.generateVideoUrl(id);
-    const result = await ytdl.getInfo(videoUrl);
+
+    const result = await play.video_info(videoUrl);
     return {
-      title: result.videoDetails.title,
-      length: parseInt(result.videoDetails.lengthSeconds, 10),
-      author: result.videoDetails.author.name,
+      title: result.video_details.title as string,
+      length: result.video_details.durationInSec,
+      author: result.video_details.channel?.name as string,
       thumbnail:
-        result.videoDetails.thumbnails[
-          result.videoDetails.thumbnails.length - 1
+        result.video_details.thumbnails[
+          result.video_details.thumbnails.length - 1
         ].url,
       url: videoUrl,
       platform: platform.YOUTUBE,

@@ -23,7 +23,7 @@ async function runCompletion(message: string) {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: message,
-    max_tokens: 400,
+    max_tokens: 700,
   });
   return completion.data.choices[0].text;
 }

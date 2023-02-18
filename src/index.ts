@@ -12,6 +12,7 @@ import { messages } from "./constants/message";
 import { help } from "./commands/collections/help";
 import { leave } from "./commands/collections/leave";
 import { chatGPT } from "./commands/collections/chatGPT";
+import { skip } from "./commands/collections/skip";
 
 const client = new Client({
   intents: [
@@ -44,6 +45,9 @@ client.login(process.env.TOKEN).then(() => {
           break;
         case chatGPT.name:
           chatGPT.execute(interaction);
+          break;
+        case skip.name:
+          skip.execute(interaction);
           break;
       }
     } catch (e) {
