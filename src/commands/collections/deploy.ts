@@ -7,10 +7,7 @@ export const deploy = (client: Client): void => {
       return;
     }
     if (!client.application?.owner) await client.application?.fetch();
-    if (
-      message.content.toLowerCase() === "!deploy" &&
-      message.author.id === client.application?.owner?.id
-    ) {
+    if (message.content.toLowerCase() === "!deploy") {
       try {
         await message.guild.commands.set(schema);
         await message.reply("Deployed!");

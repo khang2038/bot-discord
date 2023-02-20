@@ -1,4 +1,4 @@
-import { servers } from "src/models/Server";
+import { servers } from "src/entities/Server";
 import { CommandInteraction } from "discord.js";
 import { messages } from "src/constants/message";
 

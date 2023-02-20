@@ -13,6 +13,7 @@ import { help } from "./commands/collections/help";
 import { leave } from "./commands/collections/leave";
 import { chatGPT } from "./commands/collections/chatGPT";
 import { skip } from "./commands/collections/skip";
+import Database from "./configs/Database";
 
 const client = new Client({
   intents: [
@@ -22,6 +23,8 @@ const client = new Client({
     Intents.FLAGS.GUILD_INTEGRATIONS,
   ],
 });
+
+Database.instance.initialize();
 
 client.on("ready", () => {
   console.log(`> Bot is on ready`);

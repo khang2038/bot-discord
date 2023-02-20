@@ -3,7 +3,7 @@ export const messages = {
   cantFindAnyThing: "bai gi la vay???",
   joinVoiceChannel: "vào chỗ nào nói để chụy nhảy vào nào!",
   failToJoinVoiceChannel: "Failed to join voice channel!",
-  failToPlay: "i do not like play for you!!",
+  failToPlay: "k thích bật đọ!!",
   addedToQueue: "Added to queue by",
   author: "Author",
   length: "Length",

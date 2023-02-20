@@ -15,7 +15,7 @@ export const chatGPT = {
     await interaction.deferReply();
     const input = interaction.options.get("input")!.value! as string;
     const answer = (await runCompletion(input)) as string;
-    await interaction.followUp(`${input} ?\n\`\`\`${answer}\`\`\``);
+    await interaction.followUp(`${input}\n\`\`\`${answer}\`\`\``);
   },
 };
 
