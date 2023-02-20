@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
     "paths": {
-      "src/*": ["src/*"],
-      "test/*": ["test/*"]
+      "src/*": [
+        "src/*"
+      ],
+      "test/*": [
+        "test/*"
+      ]
     },
     "target": "es2016",
-    "lib": ["ES6"],
+    "lib": [
+      "ES6"
+    ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "commonjs",
@@ -19,5 +25,8 @@
     "skipLibCheck": true,
     "outDir": "build",
   },
-  "include": ["src", "test"]
+  "include": [
+    "src",
+    "test"
+  ]
 }
