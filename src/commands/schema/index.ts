@@ -26,6 +26,30 @@ export const schema: ApplicationCommandData[] = [
     ],
   },
   {
+    name: "themtask",
+    description: "task",
+    options: [
+      {
+        name: "title",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "tiêu đề",
+        required: true,
+      },
+      {
+        name: "description",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "chi tiết",
+        required: true,
+      },
+      {
+        name: "target",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "người nhận",
+        required: true,
+      },
+    ],
+  },
+  {
     name: "chuyenbai",
     description: "chuyển qua bài khác đê",
   },

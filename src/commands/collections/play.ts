@@ -6,8 +6,8 @@ import {
 } from "@discordjs/voice";
 import { CommandInteraction, GuildMember } from "discord.js";
 import { messages } from "src/constants/message";
-import { QueueItem, Server, servers } from "src/entities/Server";
-import { YoutubeService } from "src/services/youtube";
+import { QueueItem, Server, servers } from "src/entities/Server.entity";
+import { YoutubeService } from "src/services/youtube.service";
 import { platform } from "src/types/song";
 import { createPlayMessage } from "../messages/playMessage";
 

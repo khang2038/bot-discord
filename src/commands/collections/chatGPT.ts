@@ -12,10 +12,14 @@ const openai = new OpenAIApi(configuration);
 export const chatGPT = {
   name: "chatgpt",
   execute: async (interaction: CommandInteraction): Promise<void> => {
-    await interaction.deferReply();
-    const input = interaction.options.get("input")!.value! as string;
-    const answer = (await runCompletion(input)) as string;
-    await interaction.followUp(`${input}\n\`\`\`${answer}\`\`\``);
+    try {
+      await interaction.deferReply();
+      const input = interaction.options.get("input")!.value! as string;
+      const answer = (await runCompletion(input)) as string;
+      await interaction.followUp(`${input}\n\`\`\`${answer}\`\`\``);
+    } catch (error) {
+      await interaction.followUp(`máy chủ của chatgpt lỗi òi`);
+    }
   },
 };
 

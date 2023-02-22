@@ -14,6 +14,7 @@ import { leave } from "./commands/collections/leave";
 import { chatGPT } from "./commands/collections/chatGPT";
 import { skip } from "./commands/collections/skip";
 import Database from "./configs/Database";
+import { addTask } from "./commands/collections/to-do";
 
 const client = new Client({
   intents: [
@@ -52,6 +53,9 @@ client.login(process.env.TOKEN).then(() => {
         case skip.name:
           skip.execute(interaction);
           break;
+        case addTask.name:
+            addTask.execute(interaction);
+            break;  
       }
     } catch (e) {
       interaction.reply(messages.error);
