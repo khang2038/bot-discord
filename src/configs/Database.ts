@@ -25,7 +25,7 @@ export default class Database {
         username: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
-        entities: [join(__dirname, "../entities/*.entity.{ts,js}")],
+        entities: [join(__dirname + "/../**/*.entity.{js,ts}")],
         synchronize: true,
       }),
     },

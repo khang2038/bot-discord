@@ -1,0 +1,5 @@
+export enum EToDo {
+  INCOMPLETE = "INCOMPLETE",
+  COMPLETE = "COMPLETE",
+  OUT_OF_DATE = "OUT_OF_DATE",
+}

@@ -1,6 +1,6 @@
 import Database from "src/configs/Database";
 import { CreateTodoDto } from "src/dto/to-do/create-todo.dto";
-import { Todo } from "src/entities/Todo.entity";
+import { Todo } from "src/entities";
 
 const todoRepository = Database.instance
   .getDataSource("default")

@@ -1,7 +1,7 @@
-import { EToDo } from "src/interfaces/to-do.interface";
+import { EToDo } from "src/types/todo";
 import { BaseEntity } from "src/shares/base.entity";
 import { Column, Entity } from "typeorm";
-@Entity("todos")
+@Entity("todo")
 export class Todo extends BaseEntity {
   @Column()
   title: string;

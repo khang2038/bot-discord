@@ -1,2 +1,2 @@
-export * from "./Todo.entity";
+export * from "./todo.entity";
 export * from "./Server.entity";
