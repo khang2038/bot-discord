@@ -7,10 +7,12 @@ export class Todo extends BaseEntity {
   title: string;
   @Column({ nullable: true })
   description: string;
-  @Column()
+  @Column({ nullable: true })
   userTarget: string;
   @Column()
   owner: string;
   @Column({ enum: EToDo, default: EToDo.INCOMPLETE })
   status: string;
+  @Column({ nullable: true })
+  chanel: string;
 }
