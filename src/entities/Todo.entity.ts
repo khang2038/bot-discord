@@ -1,4 +1,4 @@
-import { EToDo } from "src/types/todo";
+import { EToDo } from "src/interfaces/todo.interface";
 import { BaseEntity } from "src/shares/base.entity";
 import { Column, Entity } from "typeorm";
 @Entity("todo")

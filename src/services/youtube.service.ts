@@ -1,6 +1,6 @@
 import { youtubePlaylistRegex, youtubeVideoRegex } from "src/constants/regex";
-import { Playlist } from "src/types/playlists";
-import { Song, platform } from "src/types/song";
+import { Playlist } from "src/interfaces/playlists.interface";
+import { Song, platform } from "src/interfaces/song.interface";
 import play from "play-dl";
 import ytpl from "ytpl";
 import ytsr, { Video } from "ytsr";

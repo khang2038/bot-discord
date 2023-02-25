@@ -10,7 +10,7 @@ import {
   VoiceConnectionStatus,
 } from "@discordjs/voice";
 import { Snowflake } from "discord.js";
-import { platform, Song } from "src/types/song";
+import { platform, Song } from "src/interfaces/song.interface";
 import play from "play-dl";
 export interface QueueItem {
   song: Song;

@@ -1,6 +1,6 @@
 import { EmbedFieldData, MessageEmbed } from "discord.js";
 import { messages } from "src/constants/message";
-import { platform } from "src/types/song";
+import { platform } from "src/interfaces/song.interface";
 import { formatSeconds } from "src/util/formatTime";
 
 export const createPlayMessage = (payload: {

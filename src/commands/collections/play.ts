@@ -8,7 +8,7 @@ import { CommandInteraction, GuildMember } from "discord.js";
 import { messages } from "src/constants/message";
 import { QueueItem, Server, servers } from "src/entities/Server.entity";
 import { YoutubeService } from "src/services/youtube.service";
-import { platform } from "src/types/song";
+import { platform } from "src/interfaces/song.interface";
 import { createPlayMessage } from "../messages/playMessage";
 
 export const play = {
