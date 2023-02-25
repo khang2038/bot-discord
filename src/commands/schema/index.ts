@@ -80,7 +80,7 @@ export const schema: ApplicationCommandData[] = [
       {
         name: "position",
         type: Constants.ApplicationCommandOptionTypes.NUMBER,
-        description: "The position of song in queue",
+        description: "vị trí trong danh sách",
         required: true,
       },
     ],
@@ -92,7 +92,7 @@ export const schema: ApplicationCommandData[] = [
       {
         name: "position",
         type: Constants.ApplicationCommandOptionTypes.NUMBER,
-        description: "The position of song in queue",
+        description: "vị trí trong danh sách",
         required: true,
       },
     ],
