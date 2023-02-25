@@ -19,7 +19,7 @@ export const getTodos = async (chanel: string, userTargetId?: string) => {
   if (userTargetId) {
     query.andWhere("userTarget = :id", { id: userTargetId });
   }
-  query.orderBy("t.createdAt", "DESC");
+  query.orderBy("t.createdAt", "ASC");
   const [todos, count] = await query.getManyAndCount();
 
   return {
