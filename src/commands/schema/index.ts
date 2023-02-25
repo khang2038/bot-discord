@@ -58,6 +58,10 @@ export const schema: ApplicationCommandData[] = [
     description: "xem danh sách",
   },
   {
+    name: "listtask",
+    description: "xem danh sách coong việc",
+  },
+  {
     name: "dunglai",
     description: "đừng dừng lại",
   },

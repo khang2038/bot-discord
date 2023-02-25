@@ -12,12 +12,14 @@ export const createTodo = async (dto: CreateTodoDto) => {
   return todoRepository.save(todo);
 };
 
-export const getTodos = async (userTargetId?: string) => {
-  const query = todoRepository.createQueryBuilder("t");
+export const getTodos = async (chanel: string, userTargetId?: string) => {
+  const query = todoRepository
+    .createQueryBuilder("t")
+    .andWhere("t.chanel = :id", { id: chanel });
   if (userTargetId) {
     query.andWhere("userTarget = :id", { id: userTargetId });
   }
-  query.orderBy("conversation.createdAt", "DESC");
+  query.orderBy("t.createdAt", "DESC");
   const [todos, count] = await query.getManyAndCount();
 
   return {

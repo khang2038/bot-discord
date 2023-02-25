@@ -24,4 +24,9 @@ export const messages = {
   removed: "Removed",
   help: "Help",
   ping: "Ping",
+  owner: "người tạo",
+  description: "chi tiết",
+  addTaskBy: "thêm mới công việc từ",
+  userTarget: "người được giao",
+  listTask:"danh sách các công việc"
 };

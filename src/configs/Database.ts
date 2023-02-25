@@ -2,6 +2,7 @@ import { join } from "path";
 import { DataSource } from "typeorm";
 import { NotFoundException } from "../exceptions/not-found.exception";
 import { config } from "dotenv";
+import { Todo } from "src/entities";
 config();
 
 export default class Database {
@@ -25,7 +26,7 @@ export default class Database {
         username: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
-        entities: [join(__dirname + "../entities/*.entity.{ts,js}")],
+        entities: [Todo],
         synchronize: true,
       }),
     },
