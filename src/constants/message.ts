@@ -20,7 +20,7 @@ export const messages = {
   nothing: "Nothing",
   yourQueue: "Your queue",
   invalidPosition: "Invalid position!",
-  jumpedTo: "Jumped to",
+  jumpedTo: "đến bài",
   removed: "Removed",
   help: "Help",
   ping: "Ping",
