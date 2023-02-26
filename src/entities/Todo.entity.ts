@@ -8,7 +8,7 @@ export class Todo extends BaseEntity {
   @Column({ nullable: true })
   description: string;
   @Column({ nullable: true })
-  userTarget: string;
+  user_target: string;
   @Column()
   owner: string;
   @Column({ enum: EToDo, default: EToDo.INCOMPLETE })

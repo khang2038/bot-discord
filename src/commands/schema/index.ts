@@ -59,7 +59,15 @@ export const schema: ApplicationCommandData[] = [
   },
   {
     name: "listtask",
-    description: "xem danh sách coong việc",
+    description: "xem danh sách công việc",
+    options: [
+      {
+        name: "user",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "danh sách của người được giao",
+        required: true,
+      },
+    ],
   },
   {
     name: "dunglai",

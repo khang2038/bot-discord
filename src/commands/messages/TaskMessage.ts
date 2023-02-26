@@ -32,9 +32,12 @@ export const createtaskMessage = (payload: {
     .addFields(owner, description, target);
 };
 
-export const listTaskMessage = (payload: { todos: Todo[] }): MessageEmbed => {
+export const listTaskMessage = (payload: {
+  todos: Todo[];
+  userTarget: string;
+}): MessageEmbed => {
   const embedMessage = new MessageEmbed({
-    title: messages.listTask,
+    title: `${messages.listTask} của ${payload.userTarget}`,
     color: "DARK_BLUE",
     fields: payload.todos.map((item, index) => ({
       name: `${index + 1}. ${item.title}`,

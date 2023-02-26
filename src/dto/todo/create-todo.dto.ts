@@ -16,9 +16,9 @@ export class CreateTodoDto {
 
   @IsString()
   @IsNotBlank()
-  userTarget: string;
+  user_target: string;
 
   @IsString()
   @IsNotBlank()
-  chanel:string;
+  chanel: string;
 }

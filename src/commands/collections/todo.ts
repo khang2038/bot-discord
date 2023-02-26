@@ -17,7 +17,7 @@ export const addTask = {
       const todo = await createTodo({
         title,
         description,
-        userTarget,
+        user_target: userTarget,
         owner,
         chanel,
       });
@@ -26,7 +26,7 @@ export const addTask = {
           createtaskMessage({
             title: todo.title,
             description: todo.description,
-            target: `<@${todo.userTarget}>`,
+            target: `<@${todo.user_target}>`,
             owner: `<@${todo.owner}>`,
             requester: interaction.member?.user.username as string,
           }),
@@ -43,13 +43,18 @@ export const listTask = {
   execute: async (interaction: CommandInteraction): Promise<void> => {
     try {
       await interaction.deferReply();
-      const { todos, count } = await getTodos(interaction.guildId as string);
-      console.log(interaction.guildId);
+      let userTarget = interaction.options.get("user")!.value! as string;
+      userTarget = userTarget.split("@")[1].slice(0, -1);
+      const { todos, count } = await getTodos(
+        interaction.guildId as string,
+        userTarget
+      );
+      const user = (await interaction.client.users.fetch(userTarget)).username;
       await interaction.followUp({
-        embeds: [listTaskMessage({ todos })],
+        embeds: [listTaskMessage({ todos, userTarget: user })],
       });
     } catch (error) {
-      console.log(error);
+      await interaction.followUp("@ để xác định người");
     }
   },
 };
