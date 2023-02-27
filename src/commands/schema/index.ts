@@ -14,6 +14,18 @@ export const schema: ApplicationCommandData[] = [
     ],
   },
   {
+    name: "thoitiet",
+    description: "xem thời tiết hôm nay!!!",
+    options: [
+      {
+        name: "thanhpho",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "tên thành phó",
+        required: true,
+      },
+    ],
+  },
+  {
     name: "chatgpt",
     description: "giải đáp thắc mắc !!!",
     options: [

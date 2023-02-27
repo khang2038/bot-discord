@@ -1,6 +1,8 @@
 import Database from "src/configs/Database";
 import { CreateTodoDto } from "src/dto/todo/create-todo.dto";
 import { Todo } from "src/entities";
+import { NotFoundException } from "src/exceptions/not-found.exception";
+import { FindOneOptions } from "typeorm";
 
 const todoRepository = Database.instance
   .getDataSource("default")
@@ -24,4 +26,16 @@ export const getTodos = async (chanel: string, userTargetId: string) => {
     todos,
     count,
   };
+};
+
+const getOne = (option: FindOneOptions<Todo>) => {
+  return todoRepository.findOne(option);
+};
+
+export const deleteTodo = async (id: string) => {
+  const todo = await getOne({ where: { id: id } });
+  if (!todo) {
+    throw new NotFoundException("todo");
+  }
+  return todoRepository.delete(todo.id);
 };

@@ -15,6 +15,7 @@ import { chatGPT } from "./commands/collections/chatGPT";
 import { skip } from "./commands/collections/skip";
 import Database from "./configs/Database";
 import { addTask, listTask } from "./commands/collections/todo";
+import { weather } from "./commands/collections/weather";
 
 const client = new Client({
   intents: [
@@ -58,6 +59,9 @@ client.login(process.env.TOKEN).then(() => {
           break;
         case listTask.name:
           listTask.execute(interaction);
+          break;
+        case weather.name:
+          weather.execute(interaction);
           break;
       }
     } catch (e) {
