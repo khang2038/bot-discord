@@ -18,9 +18,9 @@ export const schema: ApplicationCommandData[] = [
     description: "xem thời tiết hôm nay!!!",
     options: [
       {
-        name: "thanhpho",
+        name: "location",
         type: Constants.ApplicationCommandOptionTypes.STRING,
-        description: "tên thành phó",
+        description: "location",
         required: true,
       },
     ],

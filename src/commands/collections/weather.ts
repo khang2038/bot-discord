@@ -41,7 +41,7 @@ export const weather = {
     try {
       await interaction.deferReply();
       const input = (
-        interaction.options.get("thanhpho")!.value! as string
+        interaction.options.get("location")!.value! as string
       ).trim();
       const info = await updateCity(input);
       const cityDetails = info.cityDetails;
