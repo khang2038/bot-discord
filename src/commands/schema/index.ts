@@ -14,6 +14,36 @@ export const schema: ApplicationCommandData[] = [
     ],
   },
   {
+    name: "remind",
+    description: "tạo nhắc nhở!!!",
+    options: [
+      {
+        name: "content",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "content",
+        required: true,
+      },
+      {
+        name: "date",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "yyyy/mm/dd",
+        required: true,
+      },
+      {
+        name: "time",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "hh:mm",
+        required: true,
+      },
+      {
+        name: "typeclock",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "AM or PM",
+        required: true,
+      },
+    ],
+  },
+  {
     name: "thoitiet",
     description: "xem thời tiết hôm nay!!!",
     options: [

@@ -28,5 +28,8 @@ export const messages = {
   description: "chi tiết",
   addTaskBy: "thêm mới công việc từ",
   userTarget: "người được giao",
-  listTask:"danh sách các công việc"
+  listTask: "danh sách các công việc",
+  content: "content",
+  date: "date",
+  addremindBy: "thêm mới nhắc nhở từ",
 };
