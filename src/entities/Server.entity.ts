@@ -32,8 +32,20 @@ export class Server {
     this.playing = undefined;
     this.guildId = guildId;
 
-    this.voiceConnection.on("stateChange", async (_, newState) => {
-      handleDisconnect(newState, this);
+    const networkStateChangeHandler = (
+      oldNetworkState: any,
+      newNetworkState: any
+    ) => {
+      const newUdp = Reflect.get(newNetworkState, "udp");
+      clearInterval(newUdp?.keepAliveInterval);
+    };
+
+    this.voiceConnection.on("stateChange", (oldState, newState) => {
+      const oldNetworking = Reflect.get(oldState, "networking");
+      const newNetworking = Reflect.get(newState, "networking");
+
+      oldNetworking?.off("stateChange", networkStateChangeHandler);
+      newNetworking?.on("stateChange", networkStateChangeHandler);
     });
 
     this.audioPlayer.on("stateChange", async (oldState, newState) => {
@@ -110,53 +122,5 @@ export class Server {
     }
   }
 }
-
-export const handleDisconnect = async (
-  state: VoiceConnectionState,
-  server: Server
-) => {
-  if (state.status === VoiceConnectionStatus.Disconnected) {
-    if (
-      state.reason === VoiceConnectionDisconnectReason.WebSocketClose &&
-      state.closeCode === 4014
-    ) {
-      try {
-        await entersState(
-          server.voiceConnection,
-          VoiceConnectionStatus.Connecting,
-          5_000
-        );
-      } catch (e) {
-        server.leave();
-      }
-    } else if (server.voiceConnection.rejoinAttempts < 5) {
-      server.voiceConnection.rejoin();
-    } else {
-      server.leave();
-    }
-  } else if (state.status === VoiceConnectionStatus.Destroyed) {
-    server.leave();
-  } else if (
-    !server.isReady &&
-    (state.status === VoiceConnectionStatus.Connecting ||
-      state.status === VoiceConnectionStatus.Signalling)
-  ) {
-    server.isReady = true;
-    try {
-      await entersState(
-        server.voiceConnection,
-        VoiceConnectionStatus.Ready,
-        20_000
-      );
-    } catch {
-      if (
-        server.voiceConnection.state.status !== VoiceConnectionStatus.Destroyed
-      )
-        server.voiceConnection.destroy();
-    } finally {
-      server.isReady = false;
-    }
-  }
-};
 
 export const servers = new Map<Snowflake, Server>();
