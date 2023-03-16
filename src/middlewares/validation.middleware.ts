@@ -1,7 +1,6 @@
-import { NextFunction, Request, Response } from 'express';
-import { validate, ValidationError } from 'class-validator';
-import { HttpException } from 'src/shares/http-exception';
-import { StatusCodes } from 'http-status-codes';
+import { validate, ValidationError } from "class-validator";
+import { HttpException } from "src/shares/http-exception";
+import { StatusCodes } from "http-status-codes";
 
 type Class = { new (...args: any[]): any };
 
@@ -33,48 +32,24 @@ export const buildError = (
   return result;
 };
 
-const validationMiddleware = (dto: Class) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
+const validation = (dto: Class, object: object) => {
+  return async () => {
     try {
-      const data = Object.assign(new dto(), req.body);
+      const data = Object.assign(new dto(), object);
       const errors = await validate(data, { whitelist: true });
       const result: IValidationError[] = [];
 
       if (errors.length > 0) {
         throw new HttpException(
           StatusCodes.BAD_REQUEST,
-          'Input data validation failed',
+          "Input data validation failed",
           buildError(errors, result)
         );
       }
-
-      next();
     } catch (error) {
-      next(error);
+      throw error;
     }
   };
 };
 
-export const validationQueryMiddleware = (dto: Class) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const data = Object.assign(new dto(), req.query);
-      const errors = await validate(data, { whitelist: true });
-      const result: IValidationError[] = [];
-
-      if (errors.length > 0) {
-        throw new HttpException(
-          StatusCodes.BAD_REQUEST,
-          'Input data validation failed',
-          buildError(errors, result)
-        );
-      }
-
-      next();
-    } catch (error) {
-      next(error);
-    }
-  };
-};
-
-export default validationMiddleware;
+export default validation;

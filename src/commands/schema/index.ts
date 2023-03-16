@@ -14,7 +14,7 @@ export const schema: ApplicationCommandData[] = [
     ],
   },
   {
-    name: "remind",
+    name: "addremind",
     description: "tạo nhắc nhở!!!",
     options: [
       {
@@ -24,21 +24,33 @@ export const schema: ApplicationCommandData[] = [
         required: true,
       },
       {
-        name: "date",
+        name: "months",
         type: Constants.ApplicationCommandOptionTypes.STRING,
-        description: "yyyy/mm/dd",
+        description: "month 1-12 or *",
         required: true,
       },
       {
-        name: "time",
+        name: "dayofmonth",
         type: Constants.ApplicationCommandOptionTypes.STRING,
-        description: "hh:mm",
+        description: "day of month 1-31 or *",
         required: true,
       },
       {
-        name: "typeclock",
+        name: "hours",
         type: Constants.ApplicationCommandOptionTypes.STRING,
-        description: "AM or PM",
+        description: "at hour in day or *",
+        required: true,
+      },
+      {
+        name: "minutes",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "at minute in hour or *",
+        required: true,
+      },
+      {
+        name: "dayofweek",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "day of week Sun-Sat or * ",
         required: true,
       },
     ],
