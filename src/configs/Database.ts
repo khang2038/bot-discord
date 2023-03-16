@@ -1,4 +1,3 @@
-import { join } from "path";
 import { DataSource } from "typeorm";
 import { NotFoundException } from "../exceptions/not-found.exception";
 import { config } from "dotenv";
@@ -34,10 +33,10 @@ export default class Database {
 
   async initialize() {
     const initialDatabasePromises = this.databases.map(async (database) => {
-  try {
+      try {
         await database.dataSource.initialize();
         console.log(`Database ${database.name} initialized`);
-  } catch (error) {
+      } catch (error) {
         console.log(error);
       }
     });

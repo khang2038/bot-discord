@@ -14,6 +14,48 @@ export const schema: ApplicationCommandData[] = [
     ],
   },
   {
+    name: "addremind",
+    description: "tạo nhắc nhở!!!",
+    options: [
+      {
+        name: "content",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "content",
+        required: true,
+      },
+      {
+        name: "months",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "month 1-12 or *",
+        required: true,
+      },
+      {
+        name: "dayofmonth",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "day of month 1-31 or *",
+        required: true,
+      },
+      {
+        name: "hours",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "at hour in day or *",
+        required: true,
+      },
+      {
+        name: "minutes",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "at minute in hour or *",
+        required: true,
+      },
+      {
+        name: "dayofweek",
+        type: Constants.ApplicationCommandOptionTypes.STRING,
+        description: "day of week Sun-Sat or * ",
+        required: true,
+      },
+    ],
+  },
+  {
     name: "thoitiet",
     description: "xem thời tiết hôm nay!!!",
     options: [
