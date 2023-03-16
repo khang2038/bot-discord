@@ -36,6 +36,9 @@
     "ytpl": "^2.3.0",
     "ytsr": "^3.8.0"
   },
+  "overrides": {
+    "ytsr": "github:Yonle/node-ytsr"
+  },
   "devDependencies": {
     "@types/module-alias": "^2.0.1",
     "@types/node": "^18.14.0",
