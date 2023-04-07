@@ -99,7 +99,6 @@ export const play = {
         });
       }
     } catch (error) {
-      console.log(error);
       await interaction.followUp(messages.failToPlay);
     }
   },
