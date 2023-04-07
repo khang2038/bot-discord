@@ -1,6 +1,6 @@
 import { CommandInteraction } from "discord.js";
 import { config } from "dotenv";
-import { Configuration, OpenAIApi } from "openai";
+import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 config();
 
 const configuration = new Configuration({
@@ -14,8 +14,24 @@ export const chatGPT = {
   execute: async (interaction: CommandInteraction): Promise<void> => {
     try {
       await interaction.deferReply();
+      const messages: ChatCompletionRequestMessage[] = [];
       const input = interaction.options.get("input")!.value! as string;
-      const answer = (await runCompletion(input)) as string;
+      const prevInput = await interaction.channel?.messages.fetch({
+        limit: 15,
+      });
+      prevInput?.each((item) => {
+        messages.push({
+          role: "user",
+          content: item.content,
+        });
+      });
+      messages.reverse();
+      messages.pop();
+      messages.push({
+        role: "user",
+        content: input,
+      });
+      const answer = (await runCompletion(messages)) as string;
       await interaction.followUp(`${input}\n\`\`\`${answer}\`\`\``);
     } catch (error) {
       await interaction.followUp(`máy chủ của chatgpt lỗi òi`);
@@ -23,11 +39,10 @@ export const chatGPT = {
   },
 };
 
-async function runCompletion(message: string) {
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: message,
-    max_tokens: 700,
+async function runCompletion(message: ChatCompletionRequestMessage[]) {
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: message,
   });
-  return completion.data.choices[0].text;
+  return completion.data.choices[0].message?.content;
 }
