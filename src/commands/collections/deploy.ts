@@ -13,7 +13,6 @@ export const deploy = (client: Client): void => {
         await message.reply("Deployed!");
       } catch (e) {
         message.reply("Fail to deploy!");
-        console.log(e);
       }
     }
     if (message.content.toLowerCase() === "!hello") {
@@ -21,7 +20,6 @@ export const deploy = (client: Client): void => {
         await message.reply("chào chick, chick muốn chụy bật bài giề!");
       } catch (e) {
         message.reply("Fail to deploy!");
-        console.log(e);
       }
     }
   });

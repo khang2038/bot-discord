@@ -33,7 +33,6 @@ export const addTask = {
         ],
       });
     } catch (error) {
-      console.log(error);
     }
   },
 };

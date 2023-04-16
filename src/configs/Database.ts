@@ -37,7 +37,6 @@ export default class Database {
         await database.dataSource.initialize();
         console.log(`Database ${database.name} initialized`);
       } catch (error) {
-        console.log(error);
       }
     });
 
