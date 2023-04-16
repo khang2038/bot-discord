@@ -34,7 +34,6 @@ export const chatGPT = {
       const answer = (await runCompletion(messages)) as string;
       await interaction.followUp(`${input}\n\`\`\`${answer}\`\`\``);
     } catch (error) {
-      console.log(error)
       await interaction.followUp(`máy chủ của chatgpt lỗi òi`);
     }
   },
