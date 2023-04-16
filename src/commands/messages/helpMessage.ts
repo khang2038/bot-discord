@@ -7,7 +7,7 @@ export const createHelpMessage = (): MessageEmbed => {
     title: messages.help,
     fields: schema.map((item, index) => ({
       name: `${index + 1}. ${item.name}`,
-      value: `${item.description}`,
+      value: `${item.name}`,
     })),
   });
   return embedMessage;
