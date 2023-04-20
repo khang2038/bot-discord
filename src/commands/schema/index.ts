@@ -108,6 +108,10 @@ export const schema: ApplicationCommandData[] = [
     description: "chuyển qua bài khác đê",
   },
   {
+    name: "baylen",
+    description: "bật chế độ bay lên",
+  },
+  {
     name: "danhsach",
     description: "xem danh sách",
   },

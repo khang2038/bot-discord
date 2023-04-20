@@ -17,6 +17,7 @@ import Database from "./configs/Database";
 import { addTask, listTask } from "./commands/collections/todo";
 import { weather } from "./commands/collections/weather";
 import { addRemind } from "./commands/collections/remind";
+import { baylen } from "./commands/collections/baylen";
 
 const client = new Client({
   intents: [
@@ -66,6 +67,9 @@ client.login(process.env.TOKEN).then(() => {
           break;
         case addRemind.name:
           addRemind.execute(interaction);
+          break;
+        case baylen.name:
+          baylen.execute(interaction);
           break;
       }
     } catch (e) {
