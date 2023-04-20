@@ -61,10 +61,13 @@ export class Server {
   }
 
   public async addSongs(queueItems: QueueItem[]): Promise<void> {
-    this.queue = this.queue.concat(queueItems);
-    if (!this.playing) {
-      await this.play();
-    }
+    try{
+      this.queue = this.queue.concat(queueItems);
+      if (!this.playing) {
+        await this.play();
+      }
+    }catch(error){
+    }  
   }
 
   public stop(): void {
