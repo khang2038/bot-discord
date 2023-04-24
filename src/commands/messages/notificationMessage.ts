@@ -1,7 +1,7 @@
 import { EmbedFieldData, MessageEmbed } from "discord.js";
 import { EDayOfWeek } from "src/interfaces/remind.interface";
 
-export const remindMessage = (payload: {
+export const notificationMessage = (payload: {
   content: string;
   requester: string;
   month: string;
@@ -38,5 +38,5 @@ export const remindMessage = (payload: {
       "https://babich.biz/content/images/size/w2000/2016/03/1-c3cQvYJrVezv_Az0CoDcbA.jpeg"
     )
     .addFields(time)
-    .setAuthor(`${payload.requester} đã thêm thông báo mới`);
+    .setAuthor(`Thông báo nè nghe đây!!!!!!!!!`);
 };
