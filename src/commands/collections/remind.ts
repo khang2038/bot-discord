@@ -4,6 +4,7 @@ import { CreateTodoDto } from "src/dto/todo/create-todo.dto";
 import validationMiddleware from "src/middlewares/validation.middleware";
 import { remindMessage } from "../messages/remindMessage";
 import { CronJob } from "cron";
+import { notificationMessage } from "../messages/notificationMessage";
 config();
 const months = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 export const addRemind = {
@@ -43,9 +44,21 @@ export const addRemind = {
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       var job = new CronJob(
-        ` 45 * * * * `,
+        `00 ${minute} ${hours} ${dayOfMonth} ${month} ${dayOfWeek}`,
         function () {
-          console.log("You will see this message every second");
+          interaction.followUp({
+            embeds: [
+              notificationMessage({
+                content,
+                requester: interaction.member?.user.username as string,
+                month,
+                dayOfMonth,
+                hours,
+                minute,
+                dayOfWeek,
+              }),
+            ],
+          });
         },
         null,
         true,

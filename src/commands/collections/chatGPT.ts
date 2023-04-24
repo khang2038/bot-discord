@@ -17,7 +17,7 @@ export const chatGPT = {
       const messages: ChatCompletionRequestMessage[] = [];
       const input = interaction.options.get("input")!.value! as string;
       const prevInput = await interaction.channel?.messages.fetch({
-        limit: 15,
+        limit: 10,
       });
       prevInput?.each((item) => {
         messages.push({
@@ -34,6 +34,7 @@ export const chatGPT = {
       const answer = (await runCompletion(messages)) as string;
       await interaction.followUp(`${input}\n\`\`\`${answer}\`\`\``);
     } catch (error) {
+      console.log(error)
       await interaction.followUp(`máy chủ của chatgpt lỗi òi`);
     }
   },
